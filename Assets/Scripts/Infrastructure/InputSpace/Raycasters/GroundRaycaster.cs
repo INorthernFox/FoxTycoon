@@ -37,8 +37,6 @@ namespace Infrastructure.InputSpace.Raycasters
             if(!Physics.Raycast(ray, out RaycastHit hitInfo, _maxDistance, _groundMask, QueryTriggerInteraction.Ignore))
                 return;
         
-            Debug.Log(hitInfo.point);
-        
             GroundRayHit hit = new()
             {
                 Hit = true,

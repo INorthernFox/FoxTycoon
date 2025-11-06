@@ -8,9 +8,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 140106131052447185, guid: 054c2fee96c317645a6dcf133ff96d66, type: 3}
+      propertyPath: _moveSpeed.m_Curve.Array.data[1].time
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 140106131052447185, guid: 054c2fee96c317645a6dcf133ff96d66, type: 3}
+      propertyPath: _moveSpeed.m_Curve.Array.data[2].time
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 140106131052447185, guid: 054c2fee96c317645a6dcf133ff96d66, type: 3}
+      propertyPath: _moveSpeed.m_Curve.Array.data[1].value
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 140106131052447185, guid: 054c2fee96c317645a6dcf133ff96d66, type: 3}
+      propertyPath: _moveSpeed.m_Curve.Array.data[2].value
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 140106131052447185, guid: 054c2fee96c317645a6dcf133ff96d66, type: 3}
+      propertyPath: _moveSpeed.m_Curve.Array.data[1].inSlope
+      value: 3.3262975
+      objectReference: {fileID: 0}
+    - target: {fileID: 140106131052447185, guid: 054c2fee96c317645a6dcf133ff96d66, type: 3}
+      propertyPath: _moveSpeed.m_Curve.Array.data[2].inSlope
+      value: 3.308745
+      objectReference: {fileID: 0}
+    - target: {fileID: 140106131052447185, guid: 054c2fee96c317645a6dcf133ff96d66, type: 3}
+      propertyPath: _moveSpeed.m_Curve.Array.data[1].outSlope
+      value: 3.3262975
+      objectReference: {fileID: 0}
+    - target: {fileID: 140106131052447185, guid: 054c2fee96c317645a6dcf133ff96d66, type: 3}
+      propertyPath: _moveSpeed.m_Curve.Array.data[2].inWeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 140106131052447185, guid: 054c2fee96c317645a6dcf133ff96d66, type: 3}
+      propertyPath: _moveSpeed.m_Curve.Array.data[2].outSlope
+      value: 3.308745
+      objectReference: {fileID: 0}
+    - target: {fileID: 140106131052447185, guid: 054c2fee96c317645a6dcf133ff96d66, type: 3}
+      propertyPath: _moveSpeed.m_Curve.Array.data[1].outWeight
+      value: 0.9973545
+      objectReference: {fileID: 0}
     - target: {fileID: 1050907531705914259, guid: 054c2fee96c317645a6dcf133ff96d66, type: 3}
       propertyPath: m_Name
-      value: Camera Variant
+      value: MobileCamera
       objectReference: {fileID: 0}
     - target: {fileID: 3819240214208564080, guid: 054c2fee96c317645a6dcf133ff96d66, type: 3}
       propertyPath: m_LocalPosition.x
@@ -51,6 +91,10 @@ PrefabInstance:
     - target: {fileID: 3819240214208564080, guid: 054c2fee96c317645a6dcf133ff96d66, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8496313816597331139, guid: 054c2fee96c317645a6dcf133ff96d66, type: 3}
+      propertyPath: orthographic size
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

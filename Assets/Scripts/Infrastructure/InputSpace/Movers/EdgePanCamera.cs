@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Infrastructure.InputSpace.Movers
 {
@@ -25,8 +26,8 @@ namespace Infrastructure.InputSpace.Movers
         {
             if(cam == null) 
                 return;
-
-            Vector3 mp = Input.mousePosition;
+            
+            Vector3 mp = Pointer.current.position.ReadValue();
             float w = Screen.width;
             float h = Screen.height;
 

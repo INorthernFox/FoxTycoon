@@ -179,7 +179,7 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
+                    ""name"": ""Down"",
                     ""id"": ""4be1e6da-7f12-45f7-b7d9-4050412378ab"",
                     ""path"": ""<Touchscreen>/delta/up"",
                     ""interactions"": """",
@@ -190,7 +190,7 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""down"",
+                    ""name"": ""Up"",
                     ""id"": ""786dd781-446b-41f0-ba4a-469f63261e4e"",
                     ""path"": ""<Touchscreen>/delta/down"",
                     ""interactions"": """",
@@ -201,7 +201,7 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""left"",
+                    ""name"": ""Right"",
                     ""id"": ""8ee3a84b-ba7a-472f-86cf-7a13cbf540de"",
                     ""path"": ""<Touchscreen>/delta/left"",
                     ""interactions"": """",
@@ -212,7 +212,7 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
+                    ""name"": ""Left"",
                     ""id"": ""6897cc13-615b-4433-8e08-b8183c57b7c6"",
                     ""path"": ""<Touchscreen>/delta/right"",
                     ""interactions"": """",

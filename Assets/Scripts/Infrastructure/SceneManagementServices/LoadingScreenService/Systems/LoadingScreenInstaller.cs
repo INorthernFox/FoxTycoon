@@ -4,7 +4,7 @@ namespace Infrastructure.SceneManagementServices.LoadingScreenService.Systems
 {
     public class LoadingScreenInstaller : MonoInstaller
     {
-#if UNITY_EDITOR || UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
         public LoadingScreenVisual PrefabPC;
 #endif
 #if UNITY_EDITOR || UNITY_ANDROID
@@ -19,7 +19,7 @@ namespace Infrastructure.SceneManagementServices.LoadingScreenService.Systems
             Container.Bind<LoadingScreenFactory>().AsSingle();
             Container.Bind<LoadingScreenVisualSettings>().FromInstance(LoadingVisualSettings).AsSingle();
 
-#if UNITY_STANDALONE
+#if UNITY_STANDALONE || UNITY_WEBGL
             Container.Bind<LoadingScreenVisual>().FromInstance(PrefabPC).AsSingle();
 #elif UNITY_ANDROID
             Container.Bind<LoadingScreenVisual>().FromInstance(PrefabAndroid).AsSingle();

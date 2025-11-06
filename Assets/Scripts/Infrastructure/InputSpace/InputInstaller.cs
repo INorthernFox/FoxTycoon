@@ -5,7 +5,7 @@ namespace Infrastructure.InputSpace
 {
     public class InputInstaller : MonoInstaller
     {
-        #if UNITY_EDITOR || UNITY_STANDALONE
+        #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBGL
         public MainCamera PCMainCamera;
         #endif
         #if UNITY_EDITOR|| UNITY_ANDROID
@@ -14,7 +14,7 @@ namespace Infrastructure.InputSpace
 
         public override void InstallBindings()
         {
-            #if UNITY_STANDALONE
+            #if UNITY_STANDALONE || UNITY_WEBGL
             Container.Bind<MainCamera>().FromInstance(PCMainCamera).AsSingle();
             #elif UNITY_ANDROID
             Container.Bind<MainCamera>().FromInstance(MobileMainCamera).AsSingle();

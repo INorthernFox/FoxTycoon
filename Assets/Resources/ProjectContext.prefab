@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrefabPC: {fileID: 2134275933406193897, guid: 170d6446e73706147a3e1bbb7f7090b2, type: 3}
-  PrefabAndroid: {fileID: 0}
+  PrefabAndroid: {fileID: 1550325228450115117, guid: 7c30a34dd93c5224aa52091d222a01c5, type: 3}
   LoadingVisualSettings: {fileID: 11400000, guid: 76c84b53f4df6a3498150d033036fae3, type: 2}
 --- !u!114 &915846561095243616
 MonoBehaviour:

@@ -4,16 +4,17 @@ using UnityEngine;
 
 namespace Infrastructure.InputSpace.Movers
 {
-
     public class CameraMover : MonoBehaviour
     {
-        [SerializeField] private float _sensitivity = 10;
-        
+        [SerializeField] private AnimationCurve _moveSpeed;
+
+        private float _time = 0;
+
         private IInputManager _input;
         private IDisposable _movementSub;
 
         private Vector3 _moveVector;
-        
+
         public void SetInputManager(IInputManager input)
         {
             _input = input;
@@ -22,17 +23,19 @@ namespace Infrastructure.InputSpace.Movers
                 .AddTo(this);
         }
 
-        private void OnMovementChanged(Vector2 move)
-        {
-            _moveVector = new Vector3(move.x, 0f, move.y) * Time.deltaTime * _sensitivity;
-        }
+        private void OnMovementChanged(Vector2 move) =>
+            _moveVector = new Vector3(move.x, 0f, move.y);
 
         private void LateUpdate()
         {
-            if (_moveVector == Vector3.zero)
+            if(_moveVector == Vector3.zero)
+            {
+                _time = 0;
                 return;
-            
-            transform.position += _moveVector;
+            }
+
+            _time += Time.deltaTime;
+            transform.position += _moveVector * Time.deltaTime * _moveSpeed.Evaluate(_time);
         }
 
         private void OnDestroy()
