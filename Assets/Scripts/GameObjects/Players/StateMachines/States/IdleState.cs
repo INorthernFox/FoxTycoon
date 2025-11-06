@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using Infrastructure.StateMachines.Core;
+using UniRx;
+
+namespace GameObjects.Players.StateMachines.States
+{
+    public class IdleState : BaseState, IPlayerState
+    {
+        private readonly PlayerAnimator _animator;
+
+        public IdleState(PlayerAnimator animator)
+        {
+            _animator = animator;
+            ValidPredecessors = new HashSet<Type>
+            {
+                typeof(MoveState),
+                typeof(CollectState),
+            };
+        }
+
+        public override IObservable<IState> Enter()
+        {
+            _animator.PlayIdle();
+            return Observable.Return(this);
+        }
+    }
+}
