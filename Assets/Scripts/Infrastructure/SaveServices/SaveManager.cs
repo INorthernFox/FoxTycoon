@@ -46,13 +46,28 @@ namespace Infrastructure.SaveServices
                 return;
             }
 
-            _saves = JsonConvert.DeserializeObject<Dictionary<string, string>>(save);
+            try
+            {
+                _saves = JsonConvert.DeserializeObject<Dictionary<string, string>>(save);
 
-            _logger.Log($"Saves deserialized {_saves.Count}", LogLevel.Info, LogSystemType.Save, LogIds.SaveManager.LoadDeserialized);
+                if(_saves == null)
+                {
+                    _logger.Log("Failed to deserialize saves - result is null", LogLevel.Error, LogSystemType.Save, LogIds.SaveManager.LoadDeserialized);
+                    _saves = new Dictionary<string, string>();
+                    return;
+                }
 
-            Load(_alwaysSaveables.Values, _saveables.Values, _settings.Values);
+                _logger.Log($"Saves deserialized {_saves.Count}", LogLevel.Info, LogSystemType.Save, LogIds.SaveManager.LoadDeserialized);
 
-            _logger.Log("Saves loaded", LogLevel.Info, LogSystemType.Save, LogIds.SaveManager.LoadComplete);
+                Load(_alwaysSaveables.Values, _saveables.Values, _settings.Values);
+
+                _logger.Log("Saves loaded", LogLevel.Info, LogSystemType.Save, LogIds.SaveManager.LoadComplete);
+            }
+            catch(Exception e)
+            {
+                _logger.Log($"Failed to deserialize saves: {e.Message}", LogLevel.Error, LogSystemType.Save, LogIds.SaveManager.LoadDeserialized);
+                _saves = new Dictionary<string, string>();
+            }
         }
 
         private void Load(params IEnumerable<ISaveable>[] collections)

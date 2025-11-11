@@ -13,18 +13,32 @@ namespace GameObjects.Players
         public IReadOnlyReactiveProperty<bool> IsMoving => _isMoving;
         private readonly ReactiveProperty<bool> _isMoving = new();
 
+        private void Awake()
+        {
+            if(_navMeshAgent == null)
+            {
+                Debug.LogError($"NavMeshAgent is not assigned on {gameObject.name}", this);
+            }
+        }
+
         public void SubscribeToMoveRequest(IObservable<Vector3> observable) =>
             observable.Subscribe(MoveTo).AddTo(_compositeDisposable);
 
         private void MoveTo(Vector3 position)
         {
+            if(_navMeshAgent == null)
+                return;
+
             _navMeshAgent.SetDestination(position);
             _isMoving.Value = true;
         }
 
         private void Update()
         {
-            if(_navMeshAgent.pathPending) 
+            if(_navMeshAgent == null)
+                return;
+
+            if(_navMeshAgent.pathPending)
                 return;
 
             if(!_isMoving.Value)

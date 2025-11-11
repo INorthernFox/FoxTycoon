@@ -12,27 +12,45 @@ namespace GameObjects.Players
 
         [SerializeField] private Animator _animator;
 
+        private void Awake()
+        {
+            if(_animator == null)
+                Debug.LogError($"Animator is not assigned on {gameObject.name}", this);
+        }
+
         public void PlayIdle()
         {
+            if(_animator == null)
+                return;
+
             DisableAll();
             _animator.SetBool(Idle, true);
         }
 
         public void PlayMove()
         {
+            if(_animator == null)
+                return;
+
             DisableAll();
             _animator.SetBool(Move, true);
         }
 
         public void PlayCollection()
         {
+            if(_animator == null)
+                return;
+
             DisableAll();
             _animator.SetBool(Collection, true);
         }
 
         private void DisableAll()
         {
-            foreach(var hash in _hashes)
+            if(_animator == null)
+                return;
+
+            foreach(int hash in _hashes)
                 _animator.SetBool(hash, false);
         }
     }

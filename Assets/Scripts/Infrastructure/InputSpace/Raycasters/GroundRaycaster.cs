@@ -24,10 +24,9 @@ namespace Infrastructure.InputSpace.Raycasters
             _inputManager.Clicked.Subscribe(HandleTap).AddTo(_compositeDisposable);
         }
     
-        private void OnDisable()
+        private void OnDestroy()
         {
             _compositeDisposable?.Dispose();
-            _compositeDisposable = null;
         }
 
         private void HandleTap(Vector2 screenPos)

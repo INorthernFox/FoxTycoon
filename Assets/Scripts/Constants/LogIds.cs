@@ -51,5 +51,38 @@
             public const string WriteStart = "SaveManager.Save.Write";
             public const string SaveComplete = "SaveManager.Save.Saved";
         }
+
+        public static class GameSceneInitializer
+        {
+            public const string LevelsDatabaseEmpty = "GameSceneInitializer.LevelsDatabase.Empty";
+        }
+
+        public static class MainCamera
+        {
+            public const string CameraMoverNotAssigned = "MainCamera.CameraMover.NotAssigned";
+            public const string GroundRaycasterNotAssigned = "MainCamera.GroundRaycaster.NotAssigned";
+        }
+
+        public static class BuildingObject
+        {
+            public const string BuildingViewNotAssigned = "BuildingObject.BuildingView.NotAssigned";
+            public const string VisualContainerNotAssigned = "BuildingObject.VisualContainer.NotAssigned";
+            public const string CollectTriggerNotAssigned = "BuildingObject.CollectTrigger.NotAssigned";
+        }
+
+        public static class PlayerAnimator
+        {
+            public const string AnimatorNotAssigned = "PlayerAnimator.Animator.NotAssigned";
+        }
+
+        public static class AudioPlayer
+        {
+            public const string AudioSourceNotAssigned = "AudioPlayer.AudioSource.NotAssigned";
+        }
+
+        public static class PlayerMover
+        {
+            public const string NavMeshAgentNotAssigned = "PlayerMover.NavMeshAgent.NotAssigned";
+        }
     }
 }

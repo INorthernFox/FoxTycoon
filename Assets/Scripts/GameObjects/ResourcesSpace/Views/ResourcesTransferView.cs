@@ -26,13 +26,16 @@ namespace GameObjects.ResourcesSpace.Views
         private ResourcesDatabase _resourcesDatabase;
         private IDisposable _timerStream;
 
+        private static readonly Quaternion _fixedRotation = Quaternion.Euler(30, 0, 0);
+
         private void LateUpdate() =>
-            transform.rotation = Quaternion.Euler(30, 0, 0);
+            transform.rotation = _fixedRotation;
 
         public void SetResourcesDatabase(ResourcesDatabase database) =>
             _resourcesDatabase = database;
         private void OnDestroy()
         {
+            _timerStream?.Dispose();
             _disposables?.Dispose();
             _disposables = null;
         }

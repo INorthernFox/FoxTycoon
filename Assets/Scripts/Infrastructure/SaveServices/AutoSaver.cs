@@ -65,7 +65,8 @@ namespace Infrastructure.SaveServices
         
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Stop();
+            _disposable?.Dispose();
         }
     }
 }

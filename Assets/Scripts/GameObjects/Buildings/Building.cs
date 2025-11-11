@@ -16,7 +16,7 @@ namespace GameObjects.Buildings
         private float _collectSeconds;
         private Player _collector;
 
-        private readonly float _secondMultiplier = 0.25f;
+        private const float TickInterval = 0.25f;
         
         public Building(BuildingData data, ResourcesSettings settings)
         {
@@ -27,7 +27,7 @@ namespace GameObjects.Buildings
         public void StartProduction()
         {
             _disposables.Clear();
-            Observable.Interval(TimeSpan.FromSeconds(_secondMultiplier))
+            Observable.Interval(TimeSpan.FromSeconds(TickInterval))
                 .Subscribe(_ => Tick())
                 .AddTo(_disposables);
         }
@@ -68,7 +68,7 @@ namespace GameObjects.Buildings
         
         private void ProductionLogics()
         {
-            _fractionAccumulator += _settings.ProductionPerSecond * _secondMultiplier;
+            _fractionAccumulator += _settings.ProductionPerSecond * TickInterval;
 
             if(!(_fractionAccumulator > 0))
                 return;

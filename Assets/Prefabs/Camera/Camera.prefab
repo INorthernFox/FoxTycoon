@@ -143,6 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 433d0d67982847cbbf1e3e97e0a1dfb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _settingsProfile: {fileID: 11400000, guid: fae601437af0a134ea33e1428885a633, type: 2}
+  _useProfile: 1
   _moveSpeed:
     serializedVersion: 2
     m_Curve:
@@ -176,6 +178,17 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _baseSpeed: 10
+  _maxSpeed: 20
+  _smoothTime: 0.15
+  _dampening: 5
+  _useInertia: 1
+  _inertiaDecay: 0.9
+  _useBounds: 1
+  _minBounds: {x: -50, y: -50}
+  _maxBounds: {x: 50, y: 50}
+  _useEdgeSlowdown: 1
+  _edgeSlowdownDistance: 5
 --- !u!114 &218158102123333169
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,5 +8,6 @@ namespace Infrastructure.Loggers
         Audio = 3,
         Scene = 4,
         Player = 5,
+        Camera = 6,
     }
 }

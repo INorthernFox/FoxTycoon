@@ -40,6 +40,7 @@ namespace GameObjects.Levels
             RayHitHandler handler = CreateRayHitHandler(camera);
 
             root.SetLevelObject(levelObject);
+            levelObject.AddRayHitHandler(handler);
             CreateBuildings(settings, levelObject);
             CreatePlayer(settings, levelObject, handler);
             levelObject.UpdateNavMesh();
@@ -49,10 +50,10 @@ namespace GameObjects.Levels
         private MainCamera CreateCamera(LevelObject levelObject)
         {
             MainCamera camera = Object.Instantiate(_mainCamera, levelObject.transform);
+            camera.SetLogger(_logger);
+            camera.ValidateObject();
             camera.SetInputManager(_inputManager);
             levelObject.AddCamera(camera);
-
-            CreateRayHitHandler(camera);
 
             return camera;
         }
