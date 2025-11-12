@@ -63,7 +63,7 @@ namespace GameObjects.Buildings
                 }
             }
 
-            _collectSeconds += 1f;
+            _collectSeconds += TickInterval;
         }
         
         private void ProductionLogics()

@@ -77,7 +77,15 @@ namespace Infrastructure.SaveServices
                 foreach(ISaveable item in collection.Where(x => _saves.ContainsKey(x.Key)))
                 {
                     string data = _saves[item.Key];
-                    item.Load(data);
+                    try
+                    {
+                        item.Load(data);
+                    }
+                    catch(Exception e)
+                    {
+                        _logger.Log($"Failed to load saveable '{item.Key}': {e.Message}", LogLevel.Error, LogSystemType.Save, LogIds.SaveManager.LoadDeserialized);
+                        _saves.Remove(item.Key);
+                    }
                 }
             }
         }
@@ -122,7 +130,17 @@ namespace Infrastructure.SaveServices
                 AddToBase(saveable);
 
             if(_saves.TryGetValue(saveable.Key, out string save))
-                saveable.Load(save);
+            {
+                try
+                {
+                    saveable.Load(save);
+                }
+                catch(Exception e)
+                {
+                    _logger.Log($"Failed to load saveable on register '{saveable.Key}': {e.Message}", LogLevel.Error, LogSystemType.Save, LogIds.SaveManager.LoadDeserialized);
+                    _saves.Remove(saveable.Key);
+                }
+            }
         }
 
         private void AddToSettings(ISaveable saveable)

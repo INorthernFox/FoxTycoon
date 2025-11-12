@@ -30,7 +30,11 @@ namespace Infrastructure.InputSpace
 
         private void OnClickPerformed(InputAction.CallbackContext context)
         {
-            Vector2 screenPos = Pointer.current.position.ReadValue();
+            var pointer = Pointer.current;
+            if (pointer == null)
+                return;
+
+            Vector2 screenPos = pointer.position.ReadValue();
             _click.OnNext(screenPos);
         }
 
